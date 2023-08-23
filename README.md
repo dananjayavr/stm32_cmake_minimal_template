@@ -10,7 +10,7 @@
 
 - Outisde the generated directory (ex. BSP), create a CMakeLists.txt and arm-none-eabi-gcc.cmake files.
 
-- Adapt the files accordingly to the board. Pay attention to :
+- If cloning this project, adapt the above two files accordingly to your MCU. Pay attention to :
     - Project name
     - Src and Inc paths
     - Name of startup file
