@@ -27,6 +27,27 @@
 
 - You should obtain .bin and .hex files for your target
 
+### Run project
+
+- Use STM32CubeProgrammer to program the device.
+
+### Using CLion
+
+- Open the folder containing CMakeLists.txt and *.cmake file with CLion.
+- In File -> Settings -> Build, Execution, Deployment section, add the following to CMake options field: `-DCMAKE_TOOLCHAIN_FILE=arm-none-eabi-gcc.cmake`
+- CLion should reload the CMake project without any errors.
+- Build the project
+
+#### Debug using OpenOCD and CLion
+
+- Create a new run configuration (Run -> Edit Configurations)
+- Add a new OpenOCD Download & Run configuration
+- In the board config file field, supply the appropriate configuration file. Ex. https://github.com/ntfreak/openocd/blob/master/tcl/board/st_nucleo_f4.cfg
+- Also make sure to fill the Executable field ex. nucleo-f401re.out file in the build folder
+- Pressing the Run button should now flash the target
+- To debug, place a breakpoint and click on the green bug (debug) icon. The debugger should stop at the breakpoint
+
 ### Sources
 
 - https://dev.to/younup/cmake-on-stm32-the-beginning-3766
+- https://dev.to/younup/cmake-on-stm32-episode-2-build-with-clion-2lae
