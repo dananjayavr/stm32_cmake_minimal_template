@@ -39,7 +39,10 @@ set(STM32CUBEMX_GENERATED_FILES
         BSP/Core/Src/stm32f4xx_it.c
         BSP/Core/Src/system_stm32f4xx.c
 
-        BSP/startup_stm32f401xe.s)
+        BSP/startup_stm32f401xe.s
+        BSP/Core/Inc/retarget.h
+        BSP/Core/Src/retarget.c
+)
 
 set(EXECUTABLE ${PROJECT_NAME}.out)
 
@@ -68,7 +71,7 @@ target_compile_options(${EXECUTABLE} PRIVATE
 
         -Wall
 
-        $<$<CONFIG:Debug>:-Og>
+        $<$<CONFIG:Debug>:-Og> #  If CONFIG is Debug, then add option -Og, otherwise add nothing
         )
 
 target_link_options(${EXECUTABLE} PRIVATE
@@ -78,6 +81,7 @@ target_link_options(${EXECUTABLE} PRIVATE
         -mfpu=fpv4-sp-d16
         -mfloat-abi=hard
         -specs=nano.specs
+        -specs=nosys.specs
         -lc
         -lm
         -lnosys

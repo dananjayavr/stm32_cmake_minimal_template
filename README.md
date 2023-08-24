@@ -47,6 +47,10 @@
 - Pressing the Run button should now flash the target
 - To debug, place a breakpoint and click on the green bug (debug) icon. The debugger should stop at the breakpoint
 
+### Troubleshooting
+
+- Undefined reference to _sbrk: https://stackoverflow.com/questions/5764414/undefined-reference-to-sbrk
+
 ### Sources
 
 - https://dev.to/younup/cmake-on-stm32-the-beginning-3766

@@ -21,7 +21,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include <stdio.h>
+#include "retarget.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -89,13 +90,14 @@ int main(void)
   MX_GPIO_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-
+  RetargetInit(&huart2);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+    printf("Hello, from CLion!\r\n");
     HAL_GPIO_TogglePin(LD2_GPIO_Port,LD2_Pin);
     HAL_Delay(500);
     /* USER CODE END WHILE */
@@ -236,6 +238,7 @@ void Error_Handler(void)
   __disable_irq();
   while (1)
   {
+      // Implement ME
   }
   /* USER CODE END Error_Handler_Debug */
 }
