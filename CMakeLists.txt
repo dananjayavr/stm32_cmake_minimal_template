@@ -81,7 +81,7 @@ target_link_options(${EXECUTABLE} PRIVATE
         -mfpu=fpv4-sp-d16
         -mfloat-abi=hard
         -specs=nano.specs
-        -specs=nosys.specs
+        -specs=nosys.specs # added to fix _sbrk not found issue
         -lc
         -lm
         -lnosys
