@@ -44,6 +44,15 @@ set(STM32CUBEMX_GENERATED_FILES
         BSP/Core/Src/retarget.c
 )
 
+# To disable compiler warnings, etc. for certain files (3rd party files mainly)
+set_source_files_properties(
+        BSP/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c
+        BSP/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c
+        BSP/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c
+        PROPERTIES
+        COMPILE_FLAGS -Wno-unused-parameter
+)
+
 set(EXECUTABLE ${PROJECT_NAME}.out)
 
 add_executable(${EXECUTABLE} ${STM32CUBEMX_GENERATED_FILES})
@@ -70,6 +79,8 @@ target_compile_options(${EXECUTABLE} PRIVATE
         -ffunction-sections
 
         -Wall
+        -Wextra
+        -pedantic
 
         $<$<CONFIG:Debug>:-Og> #  If CONFIG is Debug, then add option -Og, otherwise add nothing
         )
