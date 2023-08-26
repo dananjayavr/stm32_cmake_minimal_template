@@ -2,11 +2,19 @@ cmake_minimum_required(VERSION 3.15.3)
 
 project(nucleo-f401re)
 
-enable_language(C ASM)
+#enable_language(C ASM)
+#set(CMAKE_C_STANDARD 99)
+#set(CMAKE_C_STANDARD_REQUIRED ON)
+#set(CMAKE_C_EXTENSIONS OFF)
+
+enable_language(CXX C ASM)
 set(CMAKE_C_STANDARD 99)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_C_EXTENSIONS OFF)
 
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
 set(STM32CUBEMX_GENERATED_FILES
 
@@ -38,10 +46,8 @@ set(STM32CUBEMX_GENERATED_FILES
         BSP/Core/Src/stm32f4xx_hal_msp.c
         BSP/Core/Src/stm32f4xx_it.c
         BSP/Core/Src/system_stm32f4xx.c
-
         BSP/startup_stm32f401xe.s
-        BSP/Core/Inc/retarget.h
-        BSP/Core/Src/retarget.c
+
 )
 
 # To disable compiler warnings, etc. for certain files (3rd party files mainly)
@@ -55,7 +61,11 @@ set_source_files_properties(
 
 set(EXECUTABLE ${PROJECT_NAME}.out)
 
-add_executable(${EXECUTABLE} ${STM32CUBEMX_GENERATED_FILES})
+add_executable(${EXECUTABLE} ${STM32CUBEMX_GENERATED_FILES}
+        BSP/Core/Inc/retarget.h
+        BSP/Core/Src/retarget.c
+        source/application.cpp
+)
 
 target_compile_definitions(${EXECUTABLE} PRIVATE
         -DUSE_HAL_DRIVER
@@ -67,7 +77,8 @@ target_include_directories(${EXECUTABLE} PRIVATE
         BSP/Drivers/STM32F4xx_HAL_Driver/Inc
         BSP/Drivers/CMSIS/Device/ST/STM32F4xx/Include
         BSP/Drivers/CMSIS/Include
-        )
+        source
+)
 
 target_compile_options(${EXECUTABLE} PRIVATE
         -mcpu=cortex-m4
