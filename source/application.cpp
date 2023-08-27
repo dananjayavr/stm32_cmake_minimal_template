@@ -17,7 +17,7 @@ void loop() {
     LL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
     //LL_GPIO_TogglePin(LD3_GPIO_Port, LD3_Pin);
 
-    HAL_Delay(100U);
+    HAL_Delay(250U);
 }
 
 }

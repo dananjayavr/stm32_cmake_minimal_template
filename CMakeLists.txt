@@ -16,6 +16,16 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+find_program(CCACHE_PROGRAM ccache)
+
+if (CCACHE_PROGRAM)
+        message(NOTICE "ccache is enabled (found here: ${CCACHE_PROGRAM})")
+        set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE "\"${CCACHE_PROGRAM}\"")
+        set_property(GLOBAL PROPERTY RULE_LAUNCH_LINK "\"${CCACHE_PROGRAM}\"")
+else ()
+        message(FATAL_ERROR "ccache has not been found")
+endif ()
+
 set(STM32CUBEMX_GENERATED_FILES
 
         BSP/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c
@@ -72,11 +82,14 @@ target_compile_definitions(${EXECUTABLE} PRIVATE
         -DSTM32F401xE
         )
 
-target_include_directories(${EXECUTABLE} PRIVATE
+target_include_directories(${EXECUTABLE} SYSTEM PRIVATE # adding system will also discard warnings from header files
         BSP/Core/Inc
         BSP/Drivers/STM32F4xx_HAL_Driver/Inc
         BSP/Drivers/CMSIS/Device/ST/STM32F4xx/Include
         BSP/Drivers/CMSIS/Include
+)
+
+target_include_directories(${EXECUTABLE} PRIVATE
         source
 )
 
@@ -92,6 +105,10 @@ target_compile_options(${EXECUTABLE} PRIVATE
         -Wall
         -Wextra
         -pedantic
+
+        #-fno-exceptions # C++ specific flag
+        #-fno-rtti # C++ specific flag
+        $<$<COMPILE_LANGUAGE:CXX>:@${CMAKE_SOURCE_DIR}/gcc-options-cxx.txt> # add C++ options (including the two above)
 
         $<$<CONFIG:Debug>:-Og> #  If CONFIG is Debug, then add option -Og, otherwise add nothing
         )
@@ -121,3 +138,7 @@ add_custom_command(TARGET ${EXECUTABLE}
         POST_BUILD
         COMMAND arm-none-eabi-objcopy -O ihex ${EXECUTABLE} ${PROJECT_NAME}.hex
         COMMAND arm-none-eabi-objcopy -O binary ${EXECUTABLE} ${PROJECT_NAME}.bin)
+
+# Improve clean target
+set_target_properties(${EXECUTABLE} PROPERTIES ADDITIONAL_CLEAN_FILES
+        "${PROJECT_NAME}.bin;${PROJECT_NAME}.hex;${PROJECT_NAME}.map")
