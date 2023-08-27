@@ -8,7 +8,7 @@
 
 - Generate a project using CubeMX. Use a development board and initialize all peripherals to their default mode (to generate all HAL files)
 
-- Outisde the generated directory (ex. BSP), create a CMakeLists.txt and arm-none-eabi-gcc.cmake files.
+- Outside the generated directory (ex. BSP), create a CMakeLists.txt and arm-none-eabi-gcc.cmake files.
 
 - If cloning this project, adapt the above two files accordingly to your MCU. Pay attention to :
     - Project name
@@ -17,7 +17,7 @@
     - Name of linker file
     - Compiler definition for the chosen board / MCU
 
-### Build project
+### Build the project (Manual)
 
 - Create a build folder (ex. cmake-build-debug) and cd to that folder
 
@@ -31,7 +31,7 @@
 
 - Use STM32CubeProgrammer to program the device.
 
-### Using CLion
+### Build the project (with CLion)
 
 - Open the folder containing CMakeLists.txt and *.cmake file with CLion.
 - In File -> Settings -> Build, Execution, Deployment section, add the following to CMake options field: `-DCMAKE_TOOLCHAIN_FILE=arm-none-eabi-gcc.cmake`
