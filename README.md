@@ -53,6 +53,7 @@
 
 ### Sources
 
+- https://github.com/posborne/cmsis-svd/blob/master/data/STMicro/STM32F401.svd
 - https://dev.to/younup/cmake-on-stm32-the-beginning-3766
 - https://dev.to/younup/cmake-on-stm32-episode-2-build-with-clion-2lae
 - https://dev.to/younup/recompiler-vos-projets-c-et-c-plus-rapidement-avec-ccache-23in
