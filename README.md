@@ -6,9 +6,11 @@
 
 ### Initialize Project
 
-- Generate a project using CubeMX. Use a development board and initialize all peripherals to their default mode (to generate all HAL files)
+- Generate a Makefile project using CubeMX. Use a development board and initialize all peripherals to their default mode (to generate all HAL files)
 
 - Outside the generated directory (ex. BSP), create a CMakeLists.txt and arm-none-eabi-gcc.cmake files.
+
+- Populate the CMakeLists.txt file using the generated Makefile (basically copying all necessary files).
 
 - If cloning this project, adapt the above two files accordingly to your MCU. Pay attention to :
     - Project name
