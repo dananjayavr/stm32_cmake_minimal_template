@@ -49,6 +49,10 @@
 - Pressing the Run button should now flash the target
 - To debug, place a breakpoint and click on the green bug (debug) icon. The debugger should stop at the breakpoint
 
+### Find CMSIS-SVD Parsers
+
+- https://github.com/cmsis-svd/cmsis-svd
+
 ### Troubleshooting
 
 - Undefined reference to _sbrk: https://stackoverflow.com/questions/5764414/undefined-reference-to-sbrk
