@@ -23,7 +23,8 @@ if (CCACHE_PROGRAM)
         set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE "\"${CCACHE_PROGRAM}\"")
         set_property(GLOBAL PROPERTY RULE_LAUNCH_LINK "\"${CCACHE_PROGRAM}\"")
 else ()
-        message(FATAL_ERROR "ccache has not been found")
+        #message(FATAL_ERROR "ccache has not been found")
+        message(WARNING "ccache has not been found")
 endif ()
 
 set(STM32CUBEMX_GENERATED_FILES
