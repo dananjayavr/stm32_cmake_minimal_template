@@ -13,8 +13,9 @@
             "servertype": "jlink",
             "device": "STM32F401RE",
             "interface": "swd",
-            "runToMain": true, // else it starts at reset handler - not interested
-            "preLaunchTask": "Build all", // configured in tasks.json
+            "runToEntryPoint": "main",
+            //"runToMain": true, // else it starts at reset handler - not interested
+            //"preLaunchTask": "Build all", // configured in tasks.json
             // "preLaunchCommands": ["Build all"], // you can execute command instead of task
             "svdFile": "", // Include svd to watch device peripherals
             "swoConfig":
@@ -44,8 +45,9 @@
             "servertype": "jlink",
             "device": "STM32F401RE",
             "interface": "swd",
-            "runToMain": true, // else it starts at reset handler - not interested
-            "preLaunchTask": "Build all", // configured in tasks.json
+            "runToEntryPoint": "main",
+            //"runToMain": true, // else it starts at reset handler - not interested
+            //"preLaunchTask": "Build all", // configured in tasks.json
             // "preLaunchCommands": ["Build all"], // you can execute command instead of task
             "svdFile": "", // Include svd to watch device peripherals
             "swoConfig":

@@ -70,7 +70,8 @@ set_source_files_properties(
         COMPILE_FLAGS -Wno-unused-parameter
 )
 
-set(EXECUTABLE ${PROJECT_NAME}.out)
+# set(EXECUTABLE ${PROJECT_NAME}.out)
+set(EXECUTABLE ${PROJECT_NAME}.elf)
 
 add_executable(${EXECUTABLE} ${STM32CUBEMX_GENERATED_FILES}
         BSP/Core/Inc/retarget.h
