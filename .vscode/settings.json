@@ -1,5 +1,18 @@
 {
-    "cortex-debug.gdbPath": "C:/ARM/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi-gdb",
-    "cortex-debug.JLinkGDBServerPath": "C:/Program Files/SEGGER/JLink/JLinkGDBServerCL",
-    "cortex-debug.stutilPath": "C:/Tools/stlink-1.7.0-x86_64-w64-mingw32/bin/st-util.exe",
+    "cortex-debug.gdbPath": "C:/Tools/MSYS2/mingw64/bin/gdb-multiarch",
+    "cortex-debug.JLinkGDBServerPath": "C:/Program Files/SEGGER/JLink_V796f/JLinkGDBServerCL",
+    "cortex-debug.stutilPath": "C:/Tools/MSYS2/mingw64/bin/st-util.exe",
+    "cmake.configureOnOpen": true,
+
+    "cmake.cmakePath": "C:/Tools/MSYS2/mingw64/bin/cmake.exe",
+    "cmake.configureSettings": {
+      "CMAKE_AR": "C:/Tools/MSYS2/mingw64/bin/arm-none-eabi-ar.exe",
+      "CMAKE_MAKE_PROGRAM": "C:/Tools/MSYS2/usr/bin/make.exe",
+      "CMAKE_PREFIX_PATH": "C:/Tools/MSYS2/mingw64"
+    },
+    "cmake.environment": {
+      "PATH": "C:/Tools/MSYS2/mingw64;C:/Tools/MSYS2/usr/bin;${env:PATH}"
+    },
+    "cmake.generator": "MSYS Makefiles",
+    "C_Cpp.default.compilerPath": "C:/Tools/MSYS2/mingw64/bin/arm-none-eabi-gcc.exe"
 }
