@@ -7,7 +7,7 @@ all: build
 
 ${BUILD_DIR}/Makefile:
 	cmake \
-	    -G "MinGW Makefiles" \
+	    -G "MSYS Makefiles" \
 		-B${BUILD_DIR} \
 		-DCMAKE_BUILD_TYPE=${BUILD_TYPE} \
 		-DCMAKE_TOOLCHAIN_FILE=arm-none-eabi-gcc.cmake \

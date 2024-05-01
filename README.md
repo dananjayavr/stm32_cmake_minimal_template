@@ -23,7 +23,7 @@
 
 - Create a build folder (ex. cmake-build-debug) and cd to that folder
 
-- Run `cmake -G "MinGW Makefiles" -DCMAKE_TOOLCHAIN_FILE=../arm-none-eabi-gcc.cmake -DCMAKE_BUILD_TYPE=Debug ..`
+- Run `cmake -G "MinGW Makefiles" -DCMAKE_TOOLCHAIN_FILE=../arm-none-eabi-gcc.cmake -DCMAKE_BUILD_TYPE=Debug ..` (or MSYS Makefiles)
 
 - Then, run `cmake --build . -- -j 4`
 

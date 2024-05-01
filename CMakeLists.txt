@@ -128,6 +128,7 @@ target_link_options(${EXECUTABLE} PRIVATE
         -lnosys
         -Wl,-Map=${PROJECT_NAME}.map,--cref
         -Wl,--gc-sections
+        -Wl,--no-warn-rwx-segments # Linker warning when compiling with GCC 12 https://github.com/raspberrypi/pico-sdk/issues/1029
         )
 
 # Print executable size
