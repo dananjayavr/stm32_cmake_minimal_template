@@ -14,5 +14,34 @@
       "PATH": "C:/Tools/MSYS2/mingw64;C:/Tools/MSYS2/usr/bin;${env:PATH}"
     },
     "cmake.generator": "MSYS Makefiles",
-    "C_Cpp.default.compilerPath": "C:/Tools/MSYS2/mingw64/bin/arm-none-eabi-gcc.exe"
+    "C_Cpp.default.compilerPath": "C:/Tools/MSYS2/mingw64/bin/arm-none-eabi-gcc.exe",
+
+    "terminal.integrated.profiles.windows": {
+      "PowerShell": {
+        "source": "PowerShell",
+        "icon": "terminal-powershell"
+      },
+      "Command Prompt": {
+        "path": [
+          "${env:windir}\\Sysnative\\cmd.exe",
+          "${env:windir}\\System32\\cmd.exe"
+        ],
+        "args": [],
+        "icon": "terminal-cmd"
+      },
+      "Git Bash": {
+        "source": "Git Bash"
+      },
+      "MSYS2": {
+        "path": "C:/Tools/MSYS2/usr/bin/bash.exe",
+        "args": [
+          "--login",
+          "-i"
+        ],
+        "env": {
+          "MSYSTEM": "MINGW64",
+          "CHERE_INVOKING": "1"
+        }
+      }
+    }
 }
